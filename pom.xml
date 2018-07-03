@@ -16,6 +16,8 @@
         <version.thorntail>2.0.0.Final</version.thorntail>
     </properties>
 
+    <packaging>war</packaging>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
