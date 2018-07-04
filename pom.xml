@@ -70,6 +70,11 @@
             <artifactId>undertow</artifactId>
         </dependency>
 
+	<dependency>
+	    <groupId>io.thorntail</groupId>
+	    <artifactId>cdi</artifactId>
+	</dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
