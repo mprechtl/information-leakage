@@ -3,10 +3,11 @@ swarm:
     data-sources:
       ### [datasource]
       postgreSQL:
+        ### TODO: insert database name, username and password!!
         driver-name: org.postgresql
-        connection-url: jdbc:postgresql://localhost:5432/{{ databasename }}
-        user-name: {{ username }}
-        password: "{{ password }}"
+        connection-url: jdbc:postgresql://localhost:5432/example
+        user-name: example
+        password: example
       ### [datasource]
     jdbc-drivers:
       ### [driver]

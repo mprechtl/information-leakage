@@ -8,7 +8,7 @@ package prechtl.psi.insekta;
  */
 public class Constants {
 
-    public static String API_ENDPOINT = "http://localhost:8080/api/";
+    public static String API_ENDPOINT = "http://localhost:8080/songbook/api/";
 
     public static class Jsp {
 

@@ -19,8 +19,8 @@
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
     <!-- Own Stylesheet -->
-    <link rel="stylesheet" href="/css/login.css">
-    <link rel="stylesheet" href="/css/basic.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/basic.css">
 </head>
 
 <body class="text-center">
