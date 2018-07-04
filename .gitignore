@@ -105,3 +105,4 @@ nbdist/
 
 # End of https://www.gitignore.io/api/java,netbeans,intellij,java-web
 
+/nb-configuration.xml
