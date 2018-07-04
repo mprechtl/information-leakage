@@ -2,15 +2,17 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<%@ page import="static prechtl.psi.insekta.Constants.*" %>
+
 
 <%
     // extract session id
-    String sessionId = (String) request.getAttribute("sid");
+    String sessionId = (String) request.getAttribute(Parameter.SESSION_ID);
 %>
 
 <% if (sessionId != null) { %>
     <script>
-	document.location = "?sid=" + "<%= sessionId %>";
+	document.location = "?<%= Parameter.SESSION_ID %>=" + "<%= sessionId %>";
     </script>
 <% } %>
 

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.DatatypeConverter;
+import prechtl.psi.insekta.Constants;
 import prechtl.psi.insekta.stubs.SessionStore;
 import prechtl.psi.insekta.stubs.UserStore;
 
@@ -26,19 +27,19 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	String sessionId = req.getParameter("sid");
+	String sessionId = req.getParameter(Constants.Parameter.SESSION_ID);
 
 	if (sessionId != null && sessionStore.isValidSession(sessionId)) {
-	    req.getRequestDispatcher("/WEB-INF/jsps/index.jsp").forward(req, resp);
+	    req.getRequestDispatcher(Constants.Jsp.INDEX_PAGE).forward(req, resp);
 	} else {
-	    req.getRequestDispatcher("/WEB-INF/jsps/login.jsp").forward(req, resp);
+	    req.getRequestDispatcher(Constants.Jsp.LOGIN_PAGE).forward(req, resp);
 	}
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	String email = req.getParameter("email");
-	String password = req.getParameter("password");
+	String email = req.getParameter(Constants.Parameter.INPUT_EMAIL);
+	String password = req.getParameter(Constants.Parameter.INPUT_PASSWORD);
 
 	if (email != null && password != null) {
 	    try {
@@ -52,16 +53,16 @@ public class LoginServlet extends HttpServlet {
 	    if (userStore.isValidUser(email, password)) {
 		String sessionId = sessionStore.addSession(userStore.getUserId(email, password));
 
-		req.setAttribute("sid", sessionId);
-		String requestDispatcher = String.format("/WEB-INF/jsps/index.jsp", sessionId);
+		req.setAttribute(Constants.Parameter.SESSION_ID, sessionId);
+		String requestDispatcher = String.format(Constants.Jsp.INDEX_PAGE, sessionId);
 		req.getRequestDispatcher(requestDispatcher).forward(req, resp);
 	    } else {
-		req.setAttribute("error", "Username or Password incorrect.");
-		req.getRequestDispatcher("/WEB-INF/jsps/login.jsp").forward(req, resp);
+		req.setAttribute(Constants.Parameter.ERROR_MESSAGE, "Username or Password incorrect.");
+		req.getRequestDispatcher(Constants.Jsp.LOGIN_PAGE).forward(req, resp);
 	    }
 	} else {
-	    req.setAttribute("error", "Provide an username and a password!");
-	    req.getRequestDispatcher("/WEB-INF/jsps/login.jsp").forward(req, resp);
+	    req.setAttribute(Constants.Parameter.ERROR_MESSAGE, "Provide an username and a password!");
+	    req.getRequestDispatcher(Constants.Jsp.LOGIN_PAGE).forward(req, resp);
 	}
     }
 

@@ -1,9 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<%@ page import="static prechtl.psi.insekta.Constants.*" %>
+
 
 <%
     // extract possible error
-    String errorMsg = (String) request.getAttribute("error");
+    String errorMsg = (String) request.getAttribute(Parameter.ERROR_MESSAGE);
 %>
 
 
@@ -32,9 +34,9 @@
 
 	<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 	<label for="inputEmail" class="sr-only">Email address</label>
-	<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required="" autofocus="">
+	<input type="email" id="inputEmail" name="<%= Parameter.INPUT_EMAIL %>" class="form-control" placeholder="Email address" required="" autofocus="">
 	<label for="inputPassword" class="sr-only">Password</label>
-	<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="">
+	<input type="password" id="inputPassword" name="<%= Parameter.INPUT_PASSWORD %>" class="form-control" placeholder="Password" required="">
 	<div class="checkbox mb-3">
 	    <label>
 		<input type="checkbox" value="remember-me"> Remember me
