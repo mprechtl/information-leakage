@@ -11,9 +11,7 @@
 <%
     // extract session id
     String sessionId = (String) request.getAttribute(Parameter.SESSION_ID);
-%>
-
-<% if (sessionId != null) { %>
+    if (sessionId != null) { %>
     <script>
 	document.location = "?<%= Parameter.SESSION_ID %>=" + "<%= sessionId %>";
     </script>
@@ -44,19 +42,24 @@
 	</thead>
 	<tbody>
 	    <%
-		// Send request to Webservice endpoint to receive all songs
-		SongClient songClient = new SongClient();
-		List<Song> songs = songClient.retrieveSongs();
+		// Retrieve session id from url
+		sessionId = request.getParameter(Parameter.SESSION_ID);
 
-		// show each song in a row
-		for (Song song : songs) {
+		// Send request to Webservice endpoint to receive all songs
+		if (sessionId != null) {
+		    SongClient songClient = new SongClient();
+		    List<Song> songs = songClient.retrieveSongs(sessionId);
+
+		    // show each song in a row
+		    if (songs != null) {
+			for (Song song : songs) {
 	    %>
 		<tr>
 		    <td><%= song.getTitle() %></td>
 		    <td><%= song.getArtist() %></td>
 		    <td><%= song.getDuration() %></td>
 		</tr>
-	    <% } %>
+	    <% } } } %>
 	</tbody>
     </table>
 

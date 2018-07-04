@@ -24,9 +24,9 @@ public class SongClient {
 
     private static final Logger LOG = LoggerFactory.getLogger(SongClient.class);
 
-    public List<Song> retrieveSongs() {
+    public List<Song> retrieveSongs(String sid) {
 	try {
-	    URL endpointUrl = new URL(Constants.API_ENDPOINT + "songs");
+	    URL endpointUrl = new URL(Constants.API_ENDPOINT + "songs?sid=" + sid);
 
 	    HttpURLConnection connection = (HttpURLConnection) endpointUrl.openConnection();
 	    connection.setRequestMethod("GET");
