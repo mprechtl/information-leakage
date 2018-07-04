@@ -8,6 +8,8 @@ package prechtl.psi.insekta;
  */
 public class Constants {
 
+    public static String API_ENDPOINT = "http://localhost:8080/api/";
+
     public static class Jsp {
 
 	public static String INDEX_PAGE = "/WEB-INF/jsps/index.jsp";

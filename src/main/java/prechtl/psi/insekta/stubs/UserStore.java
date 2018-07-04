@@ -17,7 +17,7 @@ public class UserStore {
 
     private static final Map<String, UserInformation> USER_STORE = new HashMap() {
 	{
-	    put("9e78de73", new UserInformation("test@xxe.de",
+	    put("9e78de73", new UserInformation("test@test.com",
 		    "9E78DE733C6A51C0CC954C1D956D8929AD1310513E1042D81EDC375219C6A2EF"));
 	}
     };

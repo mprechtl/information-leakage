@@ -1,8 +1,11 @@
+
 <!DOCTYPE html>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%@ page import="static prechtl.psi.insekta.Constants.*" %>
+<%@page import="java.util.List"%>
+<%@page import="prechtl.psi.insekta.rest.clients.SongClient"%>
+<%@ page import="prechtl.psi.insekta.model.Song" %>
+<%@ page import="javax.ws.rs.core.MediaType" %>
 
 
 <%
@@ -40,11 +43,20 @@
 	    </tr>
 	</thead>
 	<tbody>
-	    <tr>
-		<td>Nichts in der Welt</td>
-		<td>Die Ärzte</td>
-		<td>227</td>
-	    </tr>
+	    <%
+		// Send request to Webservice endpoint to receive all songs
+		SongClient songClient = new SongClient();
+		List<Song> songs = songClient.retrieveSongs();
+
+		// show each song in a row
+		for (Song song : songs) {
+	    %>
+		<tr>
+		    <td><%= song.getTitle() %></td>
+		    <td><%= song.getArtist() %></td>
+		    <td><%= song.getDuration() %></td>
+		</tr>
+	    <% } %>
 	</tbody>
     </table>
 
