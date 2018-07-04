@@ -7,12 +7,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	  integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/basic.css">
 </head>
 
-<body class="text-center">
-    <h2 class="width100">Songbook</h2>
+<body>
+    <h2 class="width100 headline">Songbook</h2>
+
+    <table class="table">
+	<thead>
+	    <tr>
+		<th>name</th>
+		<th>artist</th>
+		<th>duration</th>
+	    </tr>
+	</thead>
+	<tbody>
+	    <tr>
+		<td>Nichts in der Welt</td>
+		<td>Die Ärzte</td>
+		<td>227</td>
+	    </tr>
+	</tbody>
+    </table>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

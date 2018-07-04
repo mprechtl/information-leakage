@@ -3,6 +3,7 @@ html, body {
 }
 
 body {
+    align-items: center;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
