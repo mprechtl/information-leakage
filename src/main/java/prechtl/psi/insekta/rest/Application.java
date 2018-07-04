@@ -1,4 +1,4 @@
-package prechtl.psi.insekta;
+package prechtl.psi.insekta.rest;
 
 import javax.ws.rs.ApplicationPath;
 
@@ -6,7 +6,7 @@ import javax.ws.rs.ApplicationPath;
 /**
  * @author Mike Prechtl
  */
-@ApplicationPath("/")
+@ApplicationPath("/api")
 public class Application extends javax.ws.rs.core.Application {
 
 }
