@@ -1,5 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+
+<%
+    // extract possible error
+    String errorMsg = (String) request.getAttribute("error");
+%>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,17 +23,24 @@
 
 <body class="text-center">
 
-    <form class="form-signin">
+    <form class="form-signin" method="POST" action="">
+	<% if (errorMsg != null) { %>
+	    <div class="alert alert-danger">
+		<%= errorMsg %>
+	    </div>
+	<% } %>
+
 	<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 	<label for="inputEmail" class="sr-only">Email address</label>
-	<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+	<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required="" autofocus="">
 	<label for="inputPassword" class="sr-only">Password</label>
-	<input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+	<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="">
 	<div class="checkbox mb-3">
 	    <label>
 		<input type="checkbox" value="remember-me"> Remember me
 	    </label>
 	</div>
+
 	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 	<p class="mt-5 mb-3 text-muted">© Songbook, 2018</p>
     </form>

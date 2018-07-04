@@ -1,4 +1,20 @@
 <!DOCTYPE html>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+<%
+    // extract session id
+    String sessionId = (String) request.getAttribute("sid");
+%>
+
+<% if (sessionId != null) { %>
+    <script>
+	document.location = "?sid=" + "<%= sessionId %>";
+    </script>
+<% } %>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
