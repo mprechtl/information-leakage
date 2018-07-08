@@ -29,6 +29,13 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	String sessionId = req.getParameter(Constants.Parameter.SESSION_ID);
 
+	String errorMsg = req.getParameter(Constants.Parameter.ERROR_MESSAGE);
+
+	// set error msg as attribute
+	if (errorMsg != null) {
+	    req.setAttribute(Constants.Parameter.ERROR_MESSAGE, errorMsg);
+	}
+
 	if (sessionId != null && sessionStore.isValidSession(sessionId)) {
 	    req.getRequestDispatcher(Constants.Jsp.INDEX_PAGE).forward(req, resp);
 	} else {

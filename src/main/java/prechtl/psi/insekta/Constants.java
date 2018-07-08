@@ -28,6 +28,12 @@ public class Constants {
 
 	public static String SESSION_ID = "sid";
 
+	public static String INPUT_TITLE = "title";
+
+	public static String INPUT_ARTIST = "artist";
+
+	public static String INPUT_DURATION = "duration";
+
     }
 
 }
