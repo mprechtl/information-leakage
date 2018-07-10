@@ -1,5 +1,5 @@
 
-package prechtl.psi.insekta.utils;
+package information.leakage.psi.backend.utils;
 
 import java.security.SecureRandom;
 import javax.xml.bind.DatatypeConverter;

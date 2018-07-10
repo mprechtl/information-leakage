@@ -1,5 +1,5 @@
 
-package prechtl.psi.insekta.ex;
+package information.leakage.psi.ex;
 
 import javax.ws.rs.WebApplicationException;
 

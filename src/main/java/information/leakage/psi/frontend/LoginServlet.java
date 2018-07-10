@@ -1,5 +1,8 @@
-package prechtl.psi.insekta.frontend;
+package information.leakage.psi.frontend;
 
+import information.leakage.psi.Constants;
+import information.leakage.psi.backend.stubs.SessionStore;
+import information.leakage.psi.backend.stubs.UserStore;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -11,11 +14,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.DatatypeConverter;
-import prechtl.psi.insekta.Constants;
-import prechtl.psi.insekta.stubs.SessionStore;
-import prechtl.psi.insekta.stubs.UserStore;
 
 
+/**
+ *
+ * @author Mike Prechtl
+ */
 @WebServlet("")
 public class LoginServlet extends HttpServlet {
 

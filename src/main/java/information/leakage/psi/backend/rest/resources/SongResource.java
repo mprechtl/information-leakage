@@ -1,6 +1,10 @@
 
-package prechtl.psi.insekta.rest.resources;
+package information.leakage.psi.backend.rest.resources;
 
+import information.leakage.psi.backend.stubs.SessionStore;
+import information.leakage.psi.backend.stubs.SongStore;
+import information.leakage.psi.model.Song;
+import information.leakage.psi.model.SongList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -11,10 +15,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import prechtl.psi.insekta.model.Song;
-import prechtl.psi.insekta.model.SongList;
-import prechtl.psi.insekta.stubs.SessionStore;
-import prechtl.psi.insekta.stubs.SongStore;
 
 
 /**

@@ -1,6 +1,10 @@
 
-package prechtl.psi.insekta.rest.clients;
+package information.leakage.psi.backend.rest.clients;
 
+import information.leakage.psi.Constants;
+import information.leakage.psi.ex.BadSong;
+import information.leakage.psi.model.Song;
+import information.leakage.psi.model.SongList;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,10 +18,6 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import prechtl.psi.insekta.Constants;
-import prechtl.psi.insekta.ex.BadSong;
-import prechtl.psi.insekta.model.Song;
-import prechtl.psi.insekta.model.SongList;
 
 
 /**

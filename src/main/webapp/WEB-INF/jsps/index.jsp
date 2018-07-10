@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<%@ page import="static prechtl.psi.insekta.Constants.*" %>
+<%@ page import="static information.leakage.psi.Constants.*" %>
 <%@page import="java.util.List"%>
-<%@page import="prechtl.psi.insekta.rest.clients.SongClient"%>
-<%@ page import="prechtl.psi.insekta.model.Song" %>
+<%@page import="information.leakage.psi.backend.rest.clients.SongClient"%>
+<%@ page import="information.leakage.psi.model.Song" %>
 <%@ page import="javax.ws.rs.core.MediaType" %>
 
 

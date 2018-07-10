@@ -1,4 +1,4 @@
-package prechtl.psi.insekta.rest;
+package information.leakage.psi.backend.rest;
 
 import javax.ws.rs.ApplicationPath;
 

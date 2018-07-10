@@ -1,5 +1,5 @@
 
-package prechtl.psi.insekta.model;
+package information.leakage.psi.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

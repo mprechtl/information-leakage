@@ -1,16 +1,16 @@
 
-package prechtl.psi.insekta.frontend;
+package information.leakage.psi.frontend;
 
+import information.leakage.psi.Constants;
+import information.leakage.psi.ex.BadSong;
+import information.leakage.psi.model.Song;
+import information.leakage.psi.backend.rest.clients.SongClient;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import prechtl.psi.insekta.Constants;
-import prechtl.psi.insekta.ex.BadSong;
-import prechtl.psi.insekta.model.Song;
-import prechtl.psi.insekta.rest.clients.SongClient;
 
 
 /**

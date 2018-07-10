@@ -1,13 +1,13 @@
 
-package prechtl.psi.insekta.stubs;
+package information.leakage.psi.backend.stubs;
 
+import information.leakage.psi.ex.BadSong;
+import information.leakage.psi.model.Song;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import javax.enterprise.context.ApplicationScoped;
-import prechtl.psi.insekta.ex.BadSong;
-import prechtl.psi.insekta.model.Song;
 
 
 /**

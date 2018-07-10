@@ -1,10 +1,10 @@
 
-package prechtl.psi.insekta.stubs;
+package information.leakage.psi.backend.stubs;
 
+import information.leakage.psi.backend.utils.SecureRandomFactory;
 import java.util.HashMap;
 import java.util.Map;
 import javax.enterprise.context.ApplicationScoped;
-import prechtl.psi.insekta.utils.SecureRandomFactory;
 
 
 /**

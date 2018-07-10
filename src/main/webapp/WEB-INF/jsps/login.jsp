@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@ page import="static prechtl.psi.insekta.Constants.*" %>
+<%@ page import="static information.leakage.psi.Constants.*" %>
 
 
 <%

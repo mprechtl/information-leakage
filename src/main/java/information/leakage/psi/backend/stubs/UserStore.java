@@ -1,11 +1,11 @@
 
-package prechtl.psi.insekta.stubs;
+package information.leakage.psi.backend.stubs;
 
+import information.leakage.psi.ex.NotFound;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import javax.enterprise.context.ApplicationScoped;
-import prechtl.psi.insekta.ex.NotFound;
 
 
 /**

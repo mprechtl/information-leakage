@@ -1,5 +1,5 @@
 
-package prechtl.psi.insekta;
+package information.leakage.psi;
 
 
 /**

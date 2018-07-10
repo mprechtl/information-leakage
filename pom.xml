@@ -5,9 +5,11 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>prechtl.psi.insekta</groupId>
+    <groupId>information.leakage.psi</groupId>
     <artifactId>xxe</artifactId>
     <version>1.0-rc1</version>
+
+    <name>Information leakage</name>
 
     <properties>
 	<maven.compiler.source>1.8</maven.compiler.source>
