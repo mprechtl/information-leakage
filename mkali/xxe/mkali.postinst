@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# add user owning /opt/information-leakage
+adduser -S -H -h /opt/information-leakage xxe
+# add scenario openrc init file to default runlevel
+rc-update add xxe default
+

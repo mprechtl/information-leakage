@@ -1,0 +1,16 @@
+#!/sbin/openrc-run
+command='java -jar /opt/information-leakage/xxe-thorntail.jar'
+command_args=''
+command_background=1
+command_user='xxe'
+pidfile='/run/xxe.pid'
+
+depend() {
+	need net localmount
+	after bootmisc
+}
+
+start_pre() {
+	checkpath -d -o xxe /opt/information-leakage/
+	checkpath -f -o xxe /opt/information-leakage/xxe-thorntail.jar
+}
