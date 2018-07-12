@@ -3,8 +3,10 @@ package information.leakage.psi.backend.stubs;
 
 import information.leakage.psi.ex.NotFound;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import javax.enterprise.context.ApplicationScoped;
 
 
@@ -21,6 +23,10 @@ public class UserStore {
 		    "9E78DE733C6A51C0CC954C1D956D8929AD1310513E1042D81EDC375219C6A2EF"));
 	}
     };
+
+    public List<String> getUserIds() {
+	return USER_STORE.entrySet().stream().map(u -> u.getKey()).collect(Collectors.toList());
+    }
 
     public boolean isValidUser(String email, String password) {
 	Optional<Map.Entry<String, UserInformation>> userInfo = findUser(email, password);

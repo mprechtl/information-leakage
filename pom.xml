@@ -17,6 +17,8 @@
 
 	<version.thorntail>2.0.0.Final</version.thorntail>
 	<version.slf4j>1.7.25</version.slf4j>
+	<version.javaee>8.0</version.javaee>
+	<version.postgresql>42.2.2</version.postgresql>
     </properties>
 
     <packaging>war</packaging>
@@ -58,6 +60,12 @@
     </build>
 
     <dependencies>
+	<dependency>
+	    <groupId>javax</groupId>
+	    <artifactId>javaee-api</artifactId>
+	    <version>${version.javaee}</version>
+	    <scope>provided</scope>
+	</dependency>
 
 	<!-- JAX-RS Fractions -->
 	<dependency>
@@ -76,10 +84,29 @@
 	    <artifactId>undertow</artifactId>
 	</dependency>
 
+	<!-- EJB support -->
+	<dependency>
+	    <groupId>io.thorntail</groupId>
+	    <artifactId>ejb</artifactId>
+	</dependency>
+
+	<!-- Batchlet support -->
+	<dependency>
+	    <groupId>io.thorntail</groupId>
+	    <artifactId>batch-jberet</artifactId>
+	</dependency>
+
 	<!-- Enable Injections -->
 	<dependency>
 	    <groupId>io.thorntail</groupId>
 	    <artifactId>cdi</artifactId>
+	</dependency>
+
+	<!-- PostgreSQL driver -->
+	<dependency>
+	    <groupId>org.postgresql</groupId>
+	    <artifactId>postgresql</artifactId>
+	    <version>${version.postgresql}</version>
 	</dependency>
 
 	<!-- Slf4j for logging -->

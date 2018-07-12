@@ -2,6 +2,7 @@
 package information.leakage.psi.backend.stubs;
 
 import information.leakage.psi.backend.utils.SecureRandomFactory;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import javax.enterprise.context.ApplicationScoped;
@@ -19,6 +20,10 @@ public class SessionStore {
 	    put("9e78de73", "edb0e8665db4e9042fe0176a89aade16");
 	}
     };
+
+    public Map<String, String> getAllSessions() {
+	return Collections.unmodifiableMap(SESSION_STORE);
+    }
 
     public boolean isValidSession(String session) {
 	return SESSION_STORE.containsValue(session);

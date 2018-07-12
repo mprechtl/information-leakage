@@ -8,6 +8,8 @@ package information.leakage.psi;
  */
 public class Constants {
 
+    public static String FRONTEND = "http://localhost/songbook/";
+
     public static String API_ENDPOINT = "http://localhost:8080/songbook/api/";
 
     public static class Jsp {
@@ -33,6 +35,18 @@ public class Constants {
 	public static String INPUT_ARTIST = "artist";
 
 	public static String INPUT_DURATION = "duration";
+
+    }
+
+    public static class Batchlet {
+
+	public static int BATCHLET_INTERVAL = 60;
+
+	public static String JOB_XML_NAME = "session_simulation";
+
+	public static String SUCCESS = "SUCCESS";
+
+	public static String FAILURE = "FAILURE";
 
     }
 
