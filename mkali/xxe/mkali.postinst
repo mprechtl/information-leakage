@@ -2,6 +2,13 @@
 
 # add user owning /opt/information-leakage
 adduser -S -H -h /opt/information-leakage xxe
+
+# chowner of start.sh script of xxe service
+chown xxe:nogroup /opt/information-leakage/start.sh
+
 # add scenario openrc init file to default runlevel
 rc-update add xxe default
+
+# start apache webserver
+rc-update add apache2
 

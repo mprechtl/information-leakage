@@ -1,16 +1,25 @@
 #!/sbin/openrc-run
-command='java -jar /opt/information-leakage/xxe-thorntail.jar'
+command='/bin/bash /opt/information-leakage/start.sh'
 command_args=''
 command_background=1
 command_user='xxe'
 pidfile='/run/xxe.pid'
 
+start() {
+	ebegin "Starting XXE-Service"
+	start-stop-daemon --start \
+		--background -m --pidfile /run/xxe.pid \
+		--exec /bin/bash -- -c "/opt/information-leakage/start.sh > var/log/xxe.log 2>&1" \
+	eend $?
+}
+
 depend() {
-	need net localmount
 	after bootmisc
 }
 
 start_pre() {
 	checkpath -d -o xxe /opt/information-leakage/
+	checkpath -f -o xxe /opt/information-leakage/start.sh
 	checkpath -f -o xxe /opt/information-leakage/xxe-thorntail.jar
 }
+
