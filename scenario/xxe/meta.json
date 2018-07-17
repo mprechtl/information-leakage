@@ -1,0 +1,11 @@
+{
+  "title": "Information leakage",
+  "is_challenge": false,
+  "show_ethics_reminder": false,
+  "required_components": [],
+  "static": {
+    "css": [],
+    "js": []
+  },
+  "vm_resource": "xxe"
+}
