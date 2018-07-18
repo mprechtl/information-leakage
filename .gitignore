@@ -101,7 +101,9 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-
+.project
+.classpath
+.settings/
 
 # End of https://www.gitignore.io/api/java,netbeans,intellij,java-web
 
