@@ -1,0 +1,18 @@
+swarm:
+  datasources:
+    data-sources:
+      ### [datasource]
+      postgreSQL:
+        # TODO insert database credentials!
+        driver-name: org.postgresql
+        connection-url: jdbc:postgresql://localhost:5432/example
+        user-name: example
+        password: example
+      ### [datasource]
+    jdbc-drivers:
+      ### [driver]
+      org.postgresql:
+        driver-class-name: org.postgresql.Driver
+        xa-datasource-name: org.postgresql.xa.PGXADataSource
+        driver-module-name: org.postgresql
+      ### [driver]
