@@ -1,6 +1,106 @@
 <h3>Introduction</h3>
-<p><a href="http://{{ vm_ip('main') }}">Go to VM</a></p>
+
 <p>
-	... TODO
+	In this scenario you will learn something about information leakage. You will look to a web application which can be exploited
+	by XML External Entities (XXE). First of all, you have to start the virtual machine.
 </p>
 
+<p><a href="http://{{ vm_ip('main') }}">Go to VM</a></p>
+
+<p>
+	If you follow the link above you should see the initial 'It works!' page of Apache2. After that you should take a look to the
+	server-info and status page which were enabled by the web server administrator and accidentally allowed for all. 
+</p>
+
+<br/>
+{% call hint() %}Hint: Look to {vm-ip}/server-status.{% endcall %}
+<br/>
+
+{% call task(identifier='sid', type='question') %}
+<p>Which session id belongs to the active user?</p>
+{{ answer(expected='???') }}
+{% endcall %}
+
+{% call task(identifier='songbookName', type='question') %}
+<p>What is the name of the web application (lowercase)?</p>
+{{ answer(expected='???') }}
+{% endcall %}
+
+<br/>
+{% call hint() %}Hint: Look to {vm-ip}/server-info.{% endcall %}
+<br/>
+
+{% call task(identifier='songbookPort', type='question') %}
+<p>On which port runs the web application?</p>
+{{ answer(expected='???') }}
+{% endcall %}
+
+<p>
+	After these initial steps you should be able to access the web application. First of all you should get a feeling what the web application does.
+</p>
+
+<h3>XML External Entities (XXE)</h3>
+
+<p>
+	According to OWASP an "XML External Entity attack is a type of attack against an application that parses XML input. The web application above
+	communicates with a REST web service. This web service consumes an XML entity which looks like this:
+</p>
+
+{% call code(language='xml') %}
+<song>
+	<title>{Title}</title>
+	<artist>{Artist}</artist>
+	<duration>{Duration in seconds}</duration>
+</song>
+{% endcall %}
+
+<p>
+	The xml parser which is used by the web service is weakly configured and therefore, the web service can leak confidential data. With a valid
+	session id, you are able to interact with the web service and now you can define your own 'song' entity where you can declare external entities.
+	The first step would be to define an XML entity which references a local file, like 'etc/passwd'. Examples, how to do this, are listed by 
+	<a href="https://www.owasp.org/index.php/XML_External_Entity_(XXE)_Processing">OWASP</a>.
+</p>
+
+<p>
+	The web application is implemented as microservice with <a href="http://wildfly-swarm.io/">WildFly-Swarm (now known as Thorntail)</a>. In Thorntail
+	there are project settings files, like project-defaults.yml which can be used and these files contains secrets, for example database credentials. Your
+	task is to find out the database user and password. To find out where the settings file is located on the server, you can look to the mkali folder in the
+	<a href="https://github.com/mprechtl/information-leakage">GitHub repository</a>. The web service is accessible under {vm-ip}/songbook/api/songs?sid={sid}.
+</p>
+
+{% call task(identifier='databaseUser', type='question') %}
+<p>Name of the database user?</p>
+{{ answer(expected='???') }}
+{% endcall %}
+
+{% call task(identifier='databasePassword', type='question') %}
+<p>Password of the database user?</p>
+{{ answer(expected='???') }}
+{% endcall %}
+
+<br/>
+{% call hint() %}Hint: The project settings file is located under /opt/information-leakage/project-defaults.yml.{% endcall %}
+<br/>
+
+<h3>Dictionary Attack</h3>
+
+<p>
+	Currently not working... - Proxy issue?
+</p>
+
+<p>
+	In this scenario you stole the session id of a user to access the web application. If you would access the web application without session id (/songbook/),
+	then you see a login page. If you look to the source code in the <a href="https://github.com/mprechtl/information-leakage">GitHub repository</a> you see
+	the password is hashed. Now you can try to obtain the password by hashing possible passwords with SHA-256 or by brute-forcing the login. For this purpose,
+	you have to collect a list of possible passwords (dictionary). To make it a little bit easier, you can use the most common passwords, but try out different
+	capitalizations of letters.
+</p>
+
+{% call task(identifier='userPassword', type='question') %}
+<p>Password of the active user?</p>
+{{ answer(expected='???') }}
+{% endcall %}
+
+<br/>
+{% call hint() %}Hint: Try out 'password' with different capitalizations.{% endcall %}
+<br/>
