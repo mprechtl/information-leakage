@@ -2,23 +2,19 @@
 <!DOCTYPE html>
 
 <%@ page import="static information.leakage.psi.Constants.*" %>
-<%@page import="java.util.List"%>
-<%@page import="information.leakage.psi.backend.rest.clients.SongClient"%>
+<%@ page import="java.util.List"%>
+<%@ page import="information.leakage.psi.backend.rest.clients.SongClient"%>
 <%@ page import="information.leakage.psi.model.Song" %>
 <%@ page import="javax.ws.rs.core.MediaType" %>
 
 
 <%
     // extract possible error
-    String errorMsg = (String) request.getAttribute(Parameter.ERROR_MESSAGE);
-
-    // extract session id
-    String sessionId = (String) request.getAttribute(Parameter.SESSION_ID);
-    if (sessionId != null) { %>
-    <script>
-	document.location = "?<%= Parameter.SESSION_ID %>=" + "<%= sessionId %>";
-    </script>
-<% } %>
+    String errorMsg = null;
+    if (request.getAttribute(Parameter.ERROR_MESSAGE) != null) {
+	errorMsg = (String) request.getAttribute(Parameter.ERROR_MESSAGE);
+    }
+%>
 
 
 <html lang="en">
@@ -52,7 +48,10 @@
 	<tbody>
 	    <%
 		// Retrieve session id from url
-		sessionId = request.getParameter(Parameter.SESSION_ID);
+		String sessionId = "";
+		if (request.getParameter(Parameter.SESSION_ID) != null) {
+		    sessionId = request.getParameter(Parameter.SESSION_ID);
+		}
 
 		// Send request to Webservice endpoint to receive all songs
 		if (sessionId != null) {

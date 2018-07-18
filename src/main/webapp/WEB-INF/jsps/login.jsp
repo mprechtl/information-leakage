@@ -5,7 +5,10 @@
 
 <%
     // extract possible error
-    String errorMsg = (String) request.getAttribute(Parameter.ERROR_MESSAGE);
+    String errorMsg = null;
+    if (request.getAttribute(Parameter.ERROR_MESSAGE) != null) {
+	errorMsg = (String) request.getAttribute(Parameter.ERROR_MESSAGE);
+    }
 %>
 
 
@@ -25,7 +28,7 @@
 
 <body class="text-center">
 
-    <form class="form-signin" method="POST" action="">
+    <form class="form-signin" method="post" action="/songbook/">
 	<% if (errorMsg != null) { %>
 	    <div class="alert alert-danger">
 		<%= errorMsg %>

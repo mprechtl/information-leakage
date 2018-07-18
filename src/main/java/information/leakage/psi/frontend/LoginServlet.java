@@ -63,10 +63,7 @@ public class LoginServlet extends HttpServlet {
 
 	    if (userStore.isValidUser(email, password)) {
 		String sessionId = sessionStore.addSession(userStore.getUserId(email, password));
-
-		req.setAttribute(Constants.Parameter.SESSION_ID, sessionId);
-		String requestDispatcher = String.format(Constants.Jsp.INDEX_PAGE, sessionId);
-		req.getRequestDispatcher(requestDispatcher).forward(req, resp);
+		resp.sendRedirect("/songbook/?sid=" + sessionId);
 	    } else {
 		req.setAttribute(Constants.Parameter.ERROR_MESSAGE, "Username or Password incorrect.");
 		req.getRequestDispatcher(Constants.Jsp.LOGIN_PAGE).forward(req, resp);
