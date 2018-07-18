@@ -108,3 +108,6 @@ nbdist/
 # End of https://www.gitignore.io/api/java,netbeans,intellij,java-web
 
 /nb-configuration.xml
+
+# Don't upload project settings again ;)
+mkali/xxe/opt/information-leakage/project-defaults.yml
