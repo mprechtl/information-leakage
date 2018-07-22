@@ -30,14 +30,13 @@ public class SessionStore {
     }
 
     public String addSession(String userId) {
-	String sessionId = generateSessionToken();
-
 	if (SESSION_STORE.containsKey(userId)) {
-	    SESSION_STORE.remove(userId);
+	    return SESSION_STORE.get(userId);
+	} else {
+	    String sessionId = generateSessionToken();
+	    SESSION_STORE.put(userId, sessionId);
+	    return sessionId;
 	}
-	SESSION_STORE.put(userId, sessionId);
-
-	return sessionId;
     }
 
     private String generateSessionToken() {
