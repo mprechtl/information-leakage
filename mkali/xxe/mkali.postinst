@@ -9,6 +9,9 @@ chown xxe:nogroup /opt/information-leakage/start.sh
 # add scenario openrc init file to default runlevel
 rc-update add xxe default
 
+# add postgresql to startup
+rc-update add postgresql
+
 # start apache webserver
 rc-update add apache2
 
